@@ -29,7 +29,7 @@ const schedule = {
 };
 
 const App = () => (
-  <div>
+  <div className="container">
     <Banner title={schedule.title} />
     <CourseList courses={schedule.courses} />
   </div>
