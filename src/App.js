@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Banner from "./components/Banner";
-import CourseList, { addScheduleTimes } from "./components/CourseList";
+import { addScheduleTimes } from "./utilities/times";
+import CourseList from "./components/CourseList";
 
 const App = () => {
   const [schedule, setSchedule] = useState();

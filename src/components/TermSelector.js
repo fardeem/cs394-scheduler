@@ -1,5 +1,5 @@
 import React from "react";
-import { terms } from "./CourseList";
+import { terms } from "../utilities/times";
 
 const TermSelector = ({ term, setTerm }) => (
   <div className="btn-group">
