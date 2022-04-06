@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Banner from "./components/Banner";
-import CourseList from "./components/CourseList";
+import CourseList, { addScheduleTimes } from "./components/CourseList";
 
 const App = () => {
   const [schedule, setSchedule] = useState();
@@ -13,7 +13,7 @@ const App = () => {
       );
       if (!response.ok) throw response;
       const json = await response.json();
-      setSchedule(json);
+      setSchedule(addScheduleTimes(json));
     };
 
     fetchSchedule();
