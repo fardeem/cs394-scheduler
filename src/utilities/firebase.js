@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
@@ -50,3 +51,20 @@ export const useData = (path, transform) => {
 };
 
 export const setData = (path, value) => database.ref(path).set(value);
+
+export const signOut = () => firebase.auth().signOut();
+
+export const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider);
+};
+
+export const useUserState = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(setUser);
+  }, []);
+
+  return [user];
+};
